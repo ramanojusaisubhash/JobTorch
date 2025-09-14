@@ -9,7 +9,7 @@ export default function Toast({ message, show, onClose, type = "success" }) {
   }, [show, onClose]);
 
   // Lighter Bootstrap background
-  const bgClass = type === "success" ? "bg-success bg-opacity-75" : "bg-danger bg-opacity-75";
+  const bgClass = type === "success" ? "bg-success bg-opacity-50" : "bg-danger bg-opacity-50";
 
   return (
     <div
