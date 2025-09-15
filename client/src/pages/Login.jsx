@@ -1,3 +1,4 @@
+// src/pages/Login.jsx
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../api/axios";
@@ -15,7 +16,13 @@ export default function Login() {
     e.preventDefault();
     try {
       const { data } = await api.post("/api/auth/login", { email, password });
+
       localStorage.setItem("token", data.token);
+      if (data.user) {
+        localStorage.setItem("user", JSON.stringify(data.user));
+      }
+
+
       setToastMessage("Logged in successfully!");
       setShowToast(true);
       setTimeout(() => navigate("/dashboard"), 500);
@@ -24,6 +31,7 @@ export default function Login() {
       setShowToast(true);
     }
   };
+
 
   return (
     <div className="container-fluid vh-100">
@@ -34,10 +42,10 @@ export default function Login() {
 
         <div className="col-md-5 d-flex flex-column bg-light">
           <div className="d-flex justify-content-end p-3">
-            <Link to="/" className="btn btn-primary">Home</Link>
+            <Link to="/" className="btn btn-primary btn-gradient">Home</Link>
           </div>
 
-          <div className="flex-grow-1 d-flex align-items-center justify-content-center ">
+          <div className="flex-grow-1 d-flex align-items-center justify-content-center">
             <div className="w-75 text-center">
               <Toast
                 message={toastMessage}
@@ -71,7 +79,7 @@ export default function Login() {
                   />
                 </div>
 
-                <button type="submit" className="btn btn-primary w-100">Login</button>
+                <button type="submit" className="btn w-100 btn-gradient">Login</button>
               </form>
 
               <p className="mt-3">

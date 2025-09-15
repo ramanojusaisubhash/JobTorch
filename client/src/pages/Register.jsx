@@ -35,7 +35,7 @@ export default function Register() {
 
         <div className="col-md-5 d-flex flex-column bg-light">
           <div className="d-flex justify-content-end p-3">
-            <Link to="/" className="btn btn-primary">Home</Link>
+            <Link to="/" className="btn btn-primary btn-gradient">Home</Link>
           </div>
 
           <div className="flex-grow-1 d-flex align-items-center justify-content-center">
@@ -86,7 +86,7 @@ export default function Register() {
                   />
                 </div>
 
-                <button type="submit" className="btn btn-primary w-100">Register</button>
+                <button type="submit" className="btn btn-gradient w-100">Register</button>
               </form>
 
               <p className="mt-3">
@@ -100,3 +100,4 @@ export default function Register() {
     </div>
   );
 }
+

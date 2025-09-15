@@ -18,7 +18,7 @@ export default function Toast({ message, show, onClose, type = "success" }) {
         transition-opacity transition-transform`}
       style={{
         position: "fixed",
-        top: "10px",       // <- gap from top
+        top: "15px",       // <- gap from top
         left: "50%",
         transform: "translateX(-50%)",
         zIndex: 1050,
