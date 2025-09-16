@@ -1,6 +1,8 @@
 // src/components/Sidebar.jsx
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import logoutIcon from "../assets/icons8-logout-5.png";
+
 
 // Utility function to generate initials
 const getInitials = (name) => {
@@ -63,7 +65,7 @@ export default function Sidebar({
       )}
 
       {/* New Chat Button */}
-      <button className="btn btn-primary mb-3" onClick={handleNewChat}>
+      <button className="btn  btn-gradient btn-primary mb-3" onClick={handleNewChat}>
         {collapsed ? "+" : "New Chat"}
       </button>
 
@@ -89,11 +91,11 @@ export default function Sidebar({
               key={chat.id}
               className={`list-group-item list-group-item-action ${
                 activeChat?.id === chat.id ? "active" : ""
-              }`}
+                }`}
               onClick={() => setActiveChat(chat)}
               style={{ cursor: "pointer" }}
             >
-              {collapsed ? "💬" : chat.title}
+              {collapsed ? "💬..." : chat.title}
             </li>
           ))}
         </ul>
@@ -102,11 +104,19 @@ export default function Sidebar({
       {/* Logout */}
       <div className="mt-3">
         <button
-          className="btn btn-danger w-100"
+          className="btn btn-danger w-100 d-flex align-items-center justify-content-center"
           onClick={handleLogout}
           title="Logout"
         >
-          {collapsed ? "⎋" : "Logout"}
+          {collapsed ? (
+            <img
+              src={logoutIcon}
+              alt="Logout"
+              style={{ width: "20px", height: "20px" }}
+            />
+          ) : (
+            "Logout"
+          )}
         </button>
       </div>
     </div>
